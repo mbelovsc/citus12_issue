@@ -1,9 +1,4 @@
 CREATE EXTENSION citus;
-
-create table test (
-    id serial primary key
-);
-
+CREATE TABLE test ( id serial PRIMARY KEY);
 SELECT create_distributed_table('test', 'id');
-
-alter table test add column name varchar(255) null;
+ALTER TABLE test ADD COLUMN name varchar(255) NULL;
