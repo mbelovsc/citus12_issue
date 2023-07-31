@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  citus11:
+    image: citusdata/citus:11
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=test
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    networks:
+      - test
+
+  citus12:
+    image: citusdata/citus:12
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=test
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    networks:
+      - test
+
+networks:
+  test:
+    driver: bridge
